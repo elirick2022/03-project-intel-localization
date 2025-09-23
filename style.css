@@ -1,0 +1,126 @@
+/* Intel color palette for a consistent theme */
+:root {
+  --intel-blue: #0071c5;
+  --intel-dark: #003366;
+  --intel-light: #e6f2fa;
+  --card-bg: #ffffff;
+  --card-hover: #e0f0ff;
+  --text-dark: #222;
+}
+
+/* Reset default browser styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--intel-light);
+  color: var(--text-dark);
+}
+
+/* Add your CSS here */
+
+/* Hero section styles */
+header {
+  background: var(--intel-blue);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header img {
+  /* Resize the SVG logo */
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.1rem;
+}
+
+/* Timeline section uses flexbox for layout */
+section {
+  display: flex; /* Flexbox for horizontal layout */
+  gap: 1rem; /* Space between cards */
+  overflow-x: auto; /* Enable horizontal scroll */
+  padding: 2rem 1rem;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+section::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome/Safari */
+}
+
+/* Timeline card styles */
+section > div {
+  background: var(--card-bg);
+  border: 2px solid var(--intel-blue);
+  border-radius: 12px;
+  min-width: 220px;
+  max-width: 250px;
+  flex: 0 0 auto; /* Prevent shrinking */
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 113, 197, 0.08);
+  transition: background 0.3s, box-shadow 0.3s;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Hide card text by default */
+section > div p {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s, max-height 0.3s;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Reveal card text on hover */
+section > div:hover {
+  background: var(--card-hover);
+  box-shadow: 0 4px 16px rgba(0, 113, 197, 0.15);
+}
+section > div:hover p {
+  opacity: 1;
+  max-height: 200px;
+}
+
+/* Card headings styles */
+section > div h2 {
+  color: var(--intel-blue);
+  margin: 0 0 0.2rem 0;
+  font-size: 1.3rem;
+}
+section > div h3 {
+  color: var(--intel-dark);
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (max-width: 700px) {
+  section {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  section > div {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Timeline instruction text */
+body > p {
+  text-align: center;
+  color: var(--intel-dark);
+  font-size: 1rem;
+  margin: 1rem 0 2rem 0;
+}
+
+/* Comments are included above to help beginners understand each part */
