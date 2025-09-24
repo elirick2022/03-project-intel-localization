@@ -6,6 +6,7 @@
   --card-bg: #ffffff;
   --card-hover: #e0f0ff;
   --text-dark: #222;
+  --section-bg: #f6f6f6; /* Light grey for section backgrounds */
 }
 
 /* Reset default browser styles */
@@ -44,19 +45,20 @@ header p {
 }
 
 /* Timeline section uses flexbox for layout */
-section {
+.timeline {
   display: flex; /* Flexbox for horizontal layout */
   gap: 1rem; /* Space between cards */
   overflow-x: auto; /* Enable horizontal scroll */
   padding: 2rem 1rem;
   scrollbar-width: none; /* Hide scrollbar in Firefox */
+  background: var(--section-bg); /* Light grey background */
 }
-section::-webkit-scrollbar {
+.timeline::-webkit-scrollbar {
   display: none; /* Hide scrollbar in Chrome/Safari */
 }
 
 /* Timeline card styles */
-section > div {
+.timeline > div {
   background: var(--card-bg);
   border: 2px solid var(--intel-blue);
   border-radius: 12px;
@@ -72,7 +74,7 @@ section > div {
 }
 
 /* Hide card text by default */
-section > div p {
+.timeline > div p {
   opacity: 0;
   max-height: 0;
   transition: opacity 0.3s, max-height 0.3s;
@@ -80,22 +82,22 @@ section > div p {
 }
 
 /* Reveal card text on hover */
-section > div:hover {
+.timeline > div:hover {
   background: var(--card-hover);
   box-shadow: 0 4px 16px rgba(0, 113, 197, 0.15);
 }
-section > div:hover p {
+.timeline > div:hover p {
   opacity: 1;
   max-height: 200px;
 }
 
 /* Card headings styles */
-section > div h2 {
+.timeline > div h2 {
   color: var(--intel-blue);
   margin: 0 0 0.2rem 0;
   font-size: 1.3rem;
 }
-section > div h3 {
+.timeline > div h3 {
   color: var(--intel-dark);
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
@@ -103,13 +105,13 @@ section > div h3 {
 
 /* Responsive: stack cards vertically on small screens */
 @media (max-width: 700px) {
-  section {
+  .timeline {
     flex-direction: column;
     overflow-x: visible;
     gap: 1rem;
     padding: 1rem;
   }
-  section > div {
+  .timeline > div {
     max-width: 100%;
     min-width: 0;
   }
@@ -121,6 +123,13 @@ body > p {
   color: var(--intel-dark);
   font-size: 1rem;
   margin: 1rem 0 2rem 0;
+}
+
+/* 3-column section background */
+.section-bg {
+  background: var(--section-bg); /* Light grey background */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* Comments are included above to help beginners understand each part */
